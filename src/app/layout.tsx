@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Oswald } from "next/font/google";
 
-import { Footer } from "@/modules/layout/components/footer";
-import { Header } from "@/modules/layout/components/header";
+import { ClerkProvider } from "@clerk/nextjs";
 
+import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
+import { Footer, Header } from "@/modules/layout/components";
 
 import "./globals.css";
 
@@ -16,14 +17,17 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: React.PropsWithChildren) {
   return (
-    <html lang="en">
-      <body className={cn("antialiased", font.className)}>
-        <div className="min-h-screen bg-background">
-          <Header />
-          {children}
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={cn("antialiased", font.className)}>
+          <div className="min-h-screen bg-background">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+          <Toaster richColors toastOptions={{ className: font.className }} />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

@@ -1,10 +1,5 @@
 import { notFound } from "next/navigation";
 
-import { ProductDetails } from "@/modules/product/components/product-details";
-import { ProductImageSlider } from "@/modules/product/components/product-image-slider";
-import { ProductReviews } from "@/modules/product/components/product-reviews";
-import { RelatedProducts } from "@/modules/product/components/related-products";
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,6 +8,12 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import {
+  ProductDetails,
+  ProductImageSlider,
+  ProductReviews,
+  RelatedProducts,
+} from "@/modules/product/components";
 
 // Mock product data - in a real app, this would come from an API
 const products = {
@@ -58,7 +59,7 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export default async function ProductPage({ params }: Props) {
+export default async function Page({ params }: Props) {
   const _params = await params;
   const product = products[_params.slug as keyof typeof products];
 

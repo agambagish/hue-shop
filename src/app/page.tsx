@@ -1,6 +1,5 @@
-import { HeroSection } from "@/modules/home/components/hero-section";
-import { PromotionalBanner } from "@/modules/home/components/promotional-banner";
-import { ProductGrid } from "@/modules/product/components/product-grid";
+import { HeroSection, PromotionalBanner } from "@/modules/home/components";
+import { ProductGrid } from "@/modules/product/components";
 
 export default function Page() {
   return (

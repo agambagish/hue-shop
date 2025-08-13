@@ -1,8 +1,6 @@
 import Link from "next/link";
 
-import { Heart, Menu, Search, ShoppingBag, User } from "lucide-react";
-
-import { Logo } from "@/modules/layout/components/logo";
+import { Heart, Menu, Search, ShoppingBag } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { AuthButton, Logo } from "@/modules/layout/components";
 
 export function Header() {
   return (
@@ -59,9 +58,7 @@ export function Header() {
             <Button variant="ghost" size="icon" className="flex lg:hidden">
               <Search className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon">
-              <User className="h-5 w-5" />
-            </Button>
+            <AuthButton />
             <Button variant="ghost" size="icon">
               <Heart className="h-5 w-5" />
             </Button>

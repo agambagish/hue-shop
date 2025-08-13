@@ -1,5 +1,4 @@
 import { ProductCard } from "@/components/global/product-card";
-
 import { Button } from "@/components/ui/button";
 
 const products = [
