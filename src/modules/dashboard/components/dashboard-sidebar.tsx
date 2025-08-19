@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 import {
   ChartLine,
@@ -27,60 +28,62 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
-const navItems = [
-  {
-    title: "Home",
-    url: "#",
-    icon: Home,
-  },
-  {
-    title: "Orders",
-    url: "#",
-    icon: Package,
-  },
-  {
-    title: "Products",
-    url: "#",
-    icon: Shirt,
-  },
-  {
-    title: "Customers",
-    url: "#",
-    icon: User,
-  },
-  {
-    title: "Analytics",
-    url: "#",
-    icon: ChartLine,
-  },
-  {
-    title: "Discounts",
-    url: "#",
-    icon: CirclePercent,
-  },
-];
-
-const yourShopNavItems = [
-  {
-    title: "Themes",
-    url: "#",
-    icon: Palette,
-  },
-  {
-    title: "Domains",
-    url: "#",
-    icon: GlobeLock,
-  },
-  {
-    title: "Preferences",
-    url: "#",
-    icon: ToggleRight,
-  },
-];
-
 export function DashboardSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
+  const params = useParams<{ slug: string }>();
+
+  const navItems = [
+    {
+      title: "Home",
+      url: `/dashboard/${params.slug}/overview`,
+      icon: Home,
+    },
+    {
+      title: "Orders",
+      url: "#",
+      icon: Package,
+    },
+    {
+      title: "Products",
+      url: `/dashboard/${params.slug}/products`,
+      icon: Shirt,
+    },
+    {
+      title: "Customers",
+      url: "#",
+      icon: User,
+    },
+    {
+      title: "Analytics",
+      url: "#",
+      icon: ChartLine,
+    },
+    {
+      title: "Discounts",
+      url: "#",
+      icon: CirclePercent,
+    },
+  ];
+
+  const yourShopNavItems = [
+    {
+      title: "Themes",
+      url: "#",
+      icon: Palette,
+    },
+    {
+      title: "Domains",
+      url: "#",
+      icon: GlobeLock,
+    },
+    {
+      title: "Preferences",
+      url: "#",
+      icon: ToggleRight,
+    },
+  ];
+
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>

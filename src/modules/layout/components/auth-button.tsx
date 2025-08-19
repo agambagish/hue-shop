@@ -70,7 +70,11 @@ export async function ButtonSection({ userId }: { userId: string }) {
 
   return (
     <Link
-      href={shop.data?.slug ? `/dashboard/${shop.data.slug}` : "/onboarding"}
+      href={
+        shop.data?.slug
+          ? `/dashboard/${shop.data.slug}/overview`
+          : "/onboarding"
+      }
       className={cn(buttonVariants({ variant: "secondary" }), "w-24")}
     >
       {shop.data?.slug ? "Dashboard" : "Onboarding"}
