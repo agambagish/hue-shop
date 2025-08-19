@@ -14,3 +14,7 @@ export function slugify(text: string) {
     .replace(/[\s_-]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
+
+export function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}

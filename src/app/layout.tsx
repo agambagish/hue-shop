@@ -5,7 +5,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
-import { Footer, Header } from "@/modules/layout/components";
 
 import "./globals.css";
 
@@ -20,11 +19,7 @@ export default function Layout({ children }: React.PropsWithChildren) {
     <ClerkProvider>
       <html lang="en">
         <body className={cn("antialiased", font.className)}>
-          <div className="min-h-screen bg-background">
-            <Header />
-            {children}
-            <Footer />
-          </div>
+          <div className="min-h-screen bg-background">{children}</div>
           <Toaster richColors toastOptions={{ className: font.className }} />
         </body>
       </html>
